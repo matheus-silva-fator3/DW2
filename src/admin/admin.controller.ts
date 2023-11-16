@@ -14,7 +14,7 @@ import { AdminService } from './admin.service';
 import { AuthInterceptor } from 'src/interceptors/auth.interceptors';
 import { UserRole } from '@prisma/client';
 import { ReportsOutput } from './dto/reports.dto';
-import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('admin')
 @Controller('admin')

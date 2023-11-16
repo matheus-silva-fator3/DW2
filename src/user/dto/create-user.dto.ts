@@ -15,7 +15,6 @@ export class CreateUserDto {
   email: string;
 
   @Length(8, 32)
-  // @Matches(passwordRegex)
   password: string;
 
   @ApiProperty({

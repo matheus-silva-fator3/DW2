@@ -31,4 +31,45 @@ model User {
   status         Status
 
   role UserRole
+  Item Item[]
+}
+
+model Author {
+  id   Int    @id @default(autoincrement())
+  nome String
+
+  items Item[]
+}
+
+enum ItemTypes {
+  BOOK
+  JOURNAL
+}
+
+model Category {
+  id Int @id @default(autoincrement())
+
+  name        String
+  description String
+  status      Status
+
+  items Item[]
+}
+
+model Item {
+  id Int @id @default(autoincrement())
+
+  title       String
+  description String
+  status      Status
+
+  createdAt DateTime @default(now())
+
+  seller   User     @relation(fields: [sellerId], references: [id])
+  author   Author   @relation(fields: [authorId], references: [id])
+  Category Category @relation(fields: [categoryId], references: [id])
+
+  authorId   Int
+  sellerId   Int
+  categoryId Int
 }
